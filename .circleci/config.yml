@@ -17,9 +17,9 @@ jobs:
       - setup_remote_docker:
           version: 20.10.14
           docker_layer_caching: true
-      - run: | 
+      - run: |
           TAG=0.1.$CIRCLE_BUILD_NUM
-          docker build -t flauberjp/simple-job-from-circle-ci:$TAG .
+          docker build -t flauberjp/simple-job-from-circle-ci:$TAG --build-arg NAME=${FAVORITE_FOOD} .
           echo $DOCKER_PASSWORD | docker login -u flauberjp --password-stdin
           CONTAINER_ID=$(docker run -d flauberjp/simple-job-from-circle-ci:$TAG)
           docker logs $CONTAINER_ID
