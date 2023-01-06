@@ -1,6 +1,8 @@
 # Use NodeJS base image
 FROM node:13
 
+ENV FAVORITE_FOOD=pizza
+
 # Create app directory
 WORKDIR /usr/src/app
 
