@@ -18,7 +18,7 @@ jobs:
           version: 20.10.14
           docker_layer_caching: true
       - run: |
-          docker build -t flauberjp/simple-job-from-circle-ci --build-arg NAME=${FAVORITE_FOOD} .
+          docker build -t flauberjp/simple-job-from-circle-ci --build-arg NAME=$FAVORITE_FOOD .
           echo $DOCKER_PASSWORD | docker login -u flauberjp --password-stdin
           docker push flauberjp/simple-job-from-circle-ci
       #    TAG=0.1.$CIRCLE_BUILD_NUM
